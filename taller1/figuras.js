@@ -35,6 +35,24 @@ function perimetroTriangulo (lado1,lado2,base){
 
 // console.log('Perímetro del Triangulo = ' + perimetroTriangulo + 'cm');
 
+function  alturaTrianguloIsosceles(trianguloGrandeLadoA, trianguloGrandeLadoB, trianguloGrandeLadoBase) {
+    if (trianguloGrandeLadoA != trianguloGrandeLadoB) {
+        console.error("Los lados a y b no son iguales");
+    } else {
+        const trianguloPequenoLadoB = trianguloGrandeLadoBase / 2;
+        const trianguloPequenoLadoBase = trianguloGrandeLadoA;
+
+        const trianguloPequenoLadoBCuadrado = trianguloPequenoLadoB * trianguloPequenoLadoB;
+        const trianguloPequenoLadoBaseCuadrado = trianguloPequenoLadoBase * trianguloPequenoLadoBase;
+
+        const trianguloPequenoLadoA = Math.sqrt(trianguloPequenoLadoBaseCuadrado - trianguloPequenoLadoBCuadrado);
+
+        const trianguloGrandeAltura = trianguloPequenoLadoA;
+        return trianguloGrandeAltura;
+    }
+}
+
+
 function areaTriangulo(base, altura){
   return (base*altura)/2;
 }
@@ -101,13 +119,33 @@ function calcularPerimetroTriangulo(){
   const perimetro = perimetroTriangulo (lado1,lado2,base);
   alert(perimetro);
 }
-function calcularAreaTriangulo(){
+
+function calcularAlturaTriangulo(){
+  const inputlado1 = document.getElementById('input_triangulo_1');
+  const ladoa= Number(inputlado1.value);
+
+  const inputlado2 = document.getElementById('input_triangulo_2');
+  const ladob= Number(inputlado2.value);
 
   const input_base = document.getElementById('input_triangulo_3');
-  const base= input_base.value;
+  const base= Number(input_base.value);
 
-  const input_altura = document.getElementById('input_triangulo_4');
-  const altura= input_altura.value;
+  const altura = alturaTrianguloIsosceles(ladoa, ladob, base);
+  alert(altura);
+  }
+
+function calcularAreaTriangulo(){
+
+  const inputlado1 = document.getElementById('input_triangulo_1');
+  const ladoa= Number(inputlado1.value);
+
+  const inputlado2 = document.getElementById('input_triangulo_2');
+  const ladob= Number(inputlado2.value);
+
+  const input_base = document.getElementById('input_triangulo_3');
+  const base= Number(input_base.value);
+
+  const altura = alturaTrianguloIsosceles(ladoa, ladob, base);
 
   const area = areaTriangulo(base, altura);
   alert(area);
