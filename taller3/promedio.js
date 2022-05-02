@@ -13,7 +13,7 @@ function calcularPromedio(lista) {
     function  (valorAcumulado = 0, nuevoElemento){
       return valorAcumulado + nuevoElemento
     })
-  const promedioLista= sumaLista / lista1.length;
+  const promedioLista= sumaLista / lista.length;
 
   return promedioLista;
 }
