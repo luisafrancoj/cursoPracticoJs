@@ -23,3 +23,4 @@
 - Tercer paso: Crear funciones
 - RETO: Interacturar con HTML desde JS
 
+## Taller #4: Calculo de salarios
